@@ -11496,57 +11496,19 @@
             <span class="v13-twinkle">✧</span>
             <span class="v13-twinkle">✦</span>
         </div>
-                <div class="share-fuel-nozzle" aria-hidden="true"></div>
-                <svg class="share-fuel-hose" viewBox="0 0 450 115" preserveAspectRatio="none" aria-hidden="true">
-                    <path class="share-hose-dark" d="M 0 22 C 90 24 70 90 182 83 S 353 86 450 39"/>
-                    <path class="share-hose-outline" d="M 0 22 C 90 24 70 90 182 83 S 353 86 450 39"/>
-                    <path id="share-hose-flow-path" class="share-hose-flow" d="M 0 22 C 90 24 70 90 182 83 S 353 86 450 39"/>
-                    <g id="share-flow-droplets" opacity="0">
-                        <circle r="6" fill="#fff2ae"/>
-                        <circle r="4.5" fill="#ffe3a0"/>
-                        <circle r="5" fill="#fff9d5"/>
-                    </g>
-                </svg>
-                <div id="share-aircraft-stand" class="share-aircraft-stand" role="img" aria-label="Máy bay tự động cất cánh sau khi tiếp nhiên liệu">
-                    <svg id="share-aircraft" class="share-aircraft" viewBox="0 0 340 200" aria-hidden="true">
-                        <defs>
-                            <linearGradient id="share-metal" x1="0" y1="0" x2=".8" y2="1">
-                                <stop offset="0" stop-color="#f6fdff"/>
-                                <stop offset=".5" stop-color="#9bd6f2"/>
-                                <stop offset="1" stop-color="#568ea8"/>
-                            </linearGradient>
-                            <linearGradient id="share-wing" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0" stop-color="#ffffff"/>
-                                <stop offset="1" stop-color="#78bcd6"/>
-                            </linearGradient>
-                        </defs>
-                        <!-- back wing, horizontal stabilizer, tail -->
-                        <path d="M102 116 L60 63 104 71 157 116Z" fill="#6da4c6" stroke="#c7eeff" stroke-width="3"/>
-                        <path d="M58 122 L25 98 28 57 66 102Z" fill="#8bd8ea" stroke="#e8ffff" stroke-width="4"/>
-                        <path d="M52 113 L10 127 11 137 84 132Z" fill="#9dc7e5" stroke="#e5f8ff" stroke-width="3"/>
-                        <!-- fuselage with nose pointed right -->
-                        <path d="M45 112 C101 92 201 95 269 111 Q313 111 314 128 Q314 145 270 149 C177 158 94 143 45 130Z" fill="url(#share-metal)" stroke="#e4f9ff" stroke-width="4"/>
-                        <path d="M68 127 Q161 153 283 137" fill="none" stroke="#4ab4db" stroke-width="7" opacity=".7"/>
-                        <path d="M152 103 L204 48 246 43 227 105Z" fill="url(#share-wing)" stroke="#e6faff" stroke-width="4"/>
-                        <path d="M163 143 L209 179 245 175 217 145Z" fill="#73afc8" stroke="#dff6ff" stroke-width="3"/>
-                        <!-- canopy -->
-                        <path d="M228 109 Q236 86 264 96 Q280 101 284 113Z" fill="#204e75" stroke="#d5f5ff" stroke-width="4"/>
-                        <path d="M248 97 Q256 95 269 103" fill="none" stroke="#a6edff" stroke-width="3"/>
-                        <circle cx="160" cy="133" r="8" fill="#ffd68b" stroke="#fff7cc" stroke-width="2" class="share-fuel-port"/>
-                        <!-- landing gear -->
-                        <path d="M116 146 L105 169 M253 143 L269 165" fill="none" stroke="#aac1d5" stroke-width="5"/>
-                        <circle cx="105" cy="170" r="13" fill="#172d45" stroke="#b3d5e7" stroke-width="4"/>
-                        <circle cx="269" cy="168" r="13" fill="#172d45" stroke="#b3d5e7" stroke-width="4"/>
-                        <circle cx="105" cy="170" r="4" fill="#88a8bb"/>
-                        <circle cx="269" cy="168" r="4" fill="#88a8bb"/>
-                        <!-- propeller at nose -->
-                        <g class="share-propeller">
-                            <rect x="316" y="81" width="8" height="86" rx="4" fill="#e9ffff" stroke="#8abbd2" stroke-width="2"/>
-                            <circle cx="320" cy="124" r="9" fill="#ffd28e" stroke="#fff0bd" stroke-width="3"/>
-                        </g>
-                    </svg>
-                </div>
-            </div>
+        <!-- Scene after "Liệu cậu có thể?": animated fuel-button and departing aircraft. -->
+        <section id="share-flight-scene" aria-hidden="true" aria-label="Lời nhờ chia sẻ trang web">
+            <header class="share-flight-heading">
+                <h2 class="share-heading-crossfade">
+                    <span class="share-heading-original">
+                        giúp tớ chia sẻ trang web này<br>
+                        <span class="share-soft">tới mọi người được không?</span>
+                    </span>
+                    <span class="share-heading-thanks" aria-hidden="true">cảm ơn cậu nhiều</span>
+                </h2>
+            </header>
+            <!-- Đôi mắt THẬT của Tiny ở cảnh trước sẽ được chuyển vào đây, không tạo cặp mắt mới. -->
+            <div id="share-tiny" class="share-tiny" aria-hidden="true"></div>
             <p id="share-flight-status" class="share-flight-status" aria-live="polite"></p>
             <a id="share-copy-manual" href="https://20-10-vuive.kazvndc-edu.workers.dev/" target="_blank" rel="noopener noreferrer">https://20-10-vuive.kazvndc-edu.workers.dev/</a>
         </section>
