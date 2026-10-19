@@ -10479,36 +10479,31 @@
             }
         </style>
         <style id="tiny-waguri-smooth-reveal-v7">
-            /* Waguri is revealed only AFTER the video has decoded its first frame. This
-   avoids WebM transparency frames abruptly appearing halfway through a fade. */
-            #smile-stage .waguri-figure, #smile-stage.hien-thi .waguri-figure {
-                opacity: 0 !important;
-                transform: translate3d(0, 17px, 0) scale(.965) !important;
-                transition: opacity 1.35s ease-in-out, transform 1.35s cubic-bezier(.22,1,.36,1) !important;
-            }
+       /* Dành cho ảnh Waguri: Luôn hiện rõ khi #smile-stage có class .hien-thi */
+#smile-stage .waguri-figure {
+    opacity: 0;
+    transform: translate3d(0, 17px, 0) scale(.965);
+    transition: opacity 1.35s ease-in-out, transform 1.35s cubic-bezier(.22,1,.36,1);
+}
 
-            #smile-stage.hien-thi.waguri-frame-visible .waguri-figure {
-                opacity: 1 !important;
-                transform: translate3d(0, 0, 0) scale(1) !important;
-            }
+#smile-stage.hien-thi .waguri-figure {
+    opacity: 1 !important;
+    transform: translate3d(0, 0, 0) scale(1) !important;
+}
 
-            /* Short compositing fade remains when leaving the scene. */
-            #smile-stage:not(.hien-thi) .waguri-figure {
-                opacity: 0 !important;
-            }
+/* Hiệu ứng khi rời khỏi scene */
+#smile-stage:not(.hien-thi) .waguri-figure {
+    opacity: 0 !important;
+}
 
-            @media (max-width: 700px) {
-                .tiny-mobile #smile-stage .waguri-figure, .tiny-mobile #smile-stage.hien-thi .waguri-figure {
-                    filter: none !important;
-                    transition: opacity 1.45s ease-in-out, transform 1.45s cubic-bezier(.22,1,.36,1) !important;
-                }
-
-                .tiny-mobile #smile-stage.hien-thi.waguri-frame-visible .waguri-figure {
-                    opacity: 1 !important;
-                }
-            }
-        </style>
-        <style id="tiny-v8-mobile-clover-question" data-performance="mobile-only">
+@media (max-width: 700px) {
+    .tiny-mobile #smile-stage .waguri-figure {
+        transition: opacity 1.45s ease-in-out, transform 1.45s cubic-bezier(.22,1,.36,1);
+    }
+    .tiny-mobile #smile-stage.hien-thi .waguri-figure {
+        opacity: 1 !important;
+    }
+}
             /* Mobile V8: fewer simultaneous raster surfaces, retain original main animation. */
             .tiny-mobile #clover-stage .clover-ambient {
                 background: radial-gradient(ellipse 60% 54% at 52% 52%,rgba(33,148,70,.13),transparent 78%) !important;
