@@ -13004,11 +13004,11 @@
                 text8.classList.remove('hien-thi');
                 beautyStage.classList.remove('hien-thi');
                 cloverStage.classList.remove('hien-thi');
-                // Xử lý hiển thị cho ảnh Waguri (thay thế logic video cũ)
+               // Xử lý hiển thị cho ảnh Waguri (thay thế hoàn toàn logic video cũ)
 const waguriRevealId = ++window.tinyWaguriRevealId || (window.tinyWaguriRevealId = 1);
 smileStage.classList.remove('waguri-frame-visible');
 
-// Kích hoạt hiệu ứng hiện thị ngay lập tức khi activeWish là 'smile'
+// Kích hoạt hiệu ứng hiển thị ngay lập tức khi activeWish là 'smile'
 if (activeWish === 'smile') {
     requestAnimationFrame(() => {
         if (window.tinyWaguriRevealId === waguriRevealId) {
@@ -13016,49 +13016,40 @@ if (activeWish === 'smile') {
         }
     });
 }
-                        // Keep media initialization out of the scene's first render frame.
-                        waguriSmile.play().catch( () => {}
-                        );
-                    }
-                    ;
-                    if (TINY_PERF.mobile)
-                        afterPaintIfCurrent('smile', playWaguri, 65);
-                    else
-                        playWaguri();
-                }
-                wishBackdrop.className = 'smile';
-                khungMat.classList.remove('wish-beauty');
-                khungMat.classList.add('wish-smile');
-                tinyReferenceWink.clear();
-                if (window.innerWidth <= 700 && window.matchMedia('(orientation: portrait)').matches) {
-                    trucXElements[0].style.transform = 'translate(4px, 8px)';
-                    trucXElements[1].style.transform = 'translate(-2px, 12px)';
-                } else {
-                    trucXElements[0].style.transform = 'translate(10px, 10px)';
-                    trucXElements[1].style.transform = 'translate(-6px, 14px)';
-                }
-                matElements.forEach(eye => {
-                    eye.style.visibility = 'visible';
-                    eye.style.animation = 'none';
-                    eye.style.transform = 'scaleY(1)';
-                    eye.classList.remove('wish-blink', 'wish-wink');
-                }
-                );
-                setTimeout( () => text9.classList.add('hien-thi'), 280);
-                setTimeout( () => {
-                    if (activeWish !== 'smile')
-                        return;
-                    tinyReferenceWink.play();
-                }
-                , TINY_PERF.mobile ? 460 : 200);
-                setTimeout( () => {
-                    if (activeWish !== 'smile')
-                        return;
-                    canClick = true;
-                    henChopMat();
-                }
-                , 1100);
-            }
+
+// Thiết lập giao diện backdrop và khung mắt
+wishBackdrop.className = 'smile';
+khungMat.classList.remove('wish-beauty');
+khungMat.classList.add('wish-smile');
+tinyReferenceWink.clear();
+
+if (window.innerWidth <= 700 && window.matchMedia('(orientation: portrait)').matches) {
+    trucXElements[0].style.transform = 'translate(4px, 8px)';
+    trucXElements[1].style.transform = 'translate(-2px, 12px)';
+} else {
+    trucXElements[0].style.transform = 'translate(10px, 10px)';
+    trucXElements[1].style.transform = 'translate(-6px, 14px)';
+}
+
+matElements.forEach(eye => {
+    eye.style.visibility = 'visible';
+    eye.style.animation = 'none';
+    eye.style.transform = 'scaleY(1)';
+    eye.classList.remove('wish-blink', 'wish-wink');
+});
+
+setTimeout(() => text9.classList.add('hien-thi'), 280);
+
+setTimeout(() => {
+    if (activeWish !== 'smile') return;
+    tinyReferenceWink.play();
+}, TINY_PERF.mobile ? 460 : 200);
+
+setTimeout(() => {
+    if (activeWish !== 'smile') return;
+    canClick = true;
+    henChopMat();
+}, 1100);
 
             // Hạt sáng của file cỏ mẫu: phát ra từ bông lá rồi bay lên/mờ dần.
             // Chỉ chạy khi cảnh tặng cỏ xuất hiện để không tốn CPU ở các cảnh khác.
