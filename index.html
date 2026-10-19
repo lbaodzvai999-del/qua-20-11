@@ -13004,60 +13004,18 @@
                 text8.classList.remove('hien-thi');
                 beautyStage.classList.remove('hien-thi');
                 cloverStage.classList.remove('hien-thi');
-                // Keep the video invisible until the first decoded frame is actually available.
-                // The previous version faded the empty <video> layer before play() started,
-                // which made Waguri jump into view after decoding finished.
-                const waguriSmile = document.getElementById('waguri-smile-video');
-                const waguriRevealId = ++window.tinyWaguriRevealId || (window.tinyWaguriRevealId = 1);
-                smileStage.classList.remove('waguri-frame-visible');
-                if (TINY_PERF.mobile)
-                    smileStage.classList.add('hien-thi');
-                else
-                    smileStage.classList.add('hien-thi');
-                if (waguriSmile) {
-                    waguriSmile.muted = true;
-                    waguriSmile.loop = true;
-                    const revealOnce = ( () => {
-                        let shown = false;
-                        return () => {
-                            if (shown || activeWish !== 'smile' || window.tinyWaguriRevealId !== waguriRevealId)
-                                return;
-                            shown = true;
-                            requestAnimationFrame( () => requestAnimationFrame( () => {
-                                if (activeWish === 'smile' && window.tinyWaguriRevealId === waguriRevealId)
-                                    smileStage.classList.add('waguri-frame-visible');
-                            }
-                            ));
-                        }
-                        ;
-                    }
-                    )();
-                    const playWaguri = () => {
-                        if (activeWish !== 'smile' || window.tinyWaguriRevealId !== waguriRevealId)
-                            return;
-                        // Real decoded frame callback avoids a black/transparent late pop.
-                        if (typeof waguriSmile.requestVideoFrameCallback === 'function') {
-                            try {
-                                waguriSmile.requestVideoFrameCallback(revealOnce);
-                            } catch (_) {}
-                        } else {
-                            // Older Safari/Chrome fallback: wait until playback advanced.
-                            const onTimeUpdate = () => {
-                                if (waguriSmile.readyState >= 2 && waguriSmile.currentTime > 0) {
-                                    waguriSmile.removeEventListener('timeupdate', onTimeUpdate);
-                                    revealOnce();
-                                }
-                            }
-                            ;
-                            waguriSmile.addEventListener('timeupdate', onTimeUpdate);
-                            waguriSmile.addEventListener('playing', () => {
-                                if (waguriSmile.readyState >= 2)
-                                    requestAnimationFrame(revealOnce);
-                            }
-                            , {
-                                once: true
-                            });
-                        }
+                // Xử lý hiển thị cho ảnh Waguri (thay thế logic video cũ)
+const waguriRevealId = ++window.tinyWaguriRevealId || (window.tinyWaguriRevealId = 1);
+smileStage.classList.remove('waguri-frame-visible');
+
+// Kích hoạt hiệu ứng hiện thị ngay lập tức khi activeWish là 'smile'
+if (activeWish === 'smile') {
+    requestAnimationFrame(() => {
+        if (window.tinyWaguriRevealId === waguriRevealId) {
+            smileStage.classList.add('hien-thi');
+        }
+    });
+}
                         // Keep media initialization out of the scene's first render frame.
                         waguriSmile.play().catch( () => {}
                         );
