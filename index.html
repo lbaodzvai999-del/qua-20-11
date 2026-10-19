@@ -1776,101 +1776,101 @@
                 }
             }
 
-            /* Waguri mỉm cười, lớp video trong suốt trên nền sao Uiverse. */
-            #smile-stage .waguri-aura {
-                position: absolute;
-                z-index: 0;
-                right: -7vw;
-                bottom: -14vh;
-                width: min(56vw, 680px);
-                height: min(96vh, 760px);
-                pointer-events: none;
-                border-radius: 50%;
-                opacity: 0;
-                background: radial-gradient(ellipse 47% 50% at 56% 57%,rgba(255,175,207,.23),rgba(255,140,193,.085) 52%,transparent 88%), radial-gradient(ellipse 51% 65% at 60% 64%,rgba(170,130,228,.12),transparent 85%);
-                transform: scale(.83);
-                transition: opacity 1.8s ease, transform 3s cubic-bezier(.22,1,.36,1);
-            }
+           /* Waguri mỉm cười - Hiệu ứng hào quang và ảnh tĩnh */
+#smile-stage .waguri-aura {
+    position: absolute;
+    z-index: 0;
+    right: -7vw;
+    bottom: -14vh;
+    width: min(56vw, 680px);
+    height: min(96vh, 760px);
+    pointer-events: none;
+    border-radius: 50%;
+    opacity: 0;
+    background: radial-gradient(ellipse 47% 50% at 56% 57%, rgba(255,175,207,.23), rgba(255,140,193,.085) 52%, transparent 88%), radial-gradient(ellipse 51% 65% at 60% 64%, rgba(170,130,228,.12), transparent 85%);
+    transform: scale(.83);
+    transition: opacity 1.8s ease, transform 3s cubic-bezier(.22,1,.36,1);
+}
 
-            #smile-stage.hien-thi .waguri-aura {
-                opacity: 1;
-                transform: scale(1);
-            }
+#smile-stage.hien-thi .waguri-aura {
+    opacity: 1;
+    transform: scale(1);
+}
 
-            #smile-stage .waguri-figure {
-                position: absolute;
-                display: block;
-                right: max(0vw, -6px);
-                bottom: -1.8vh;
-                z-index: 2;
-                height: min(79vh, 780px);
-                max-width: 52vw;
-                width: auto;
-                aspect-ratio: 408 / 540;
-                object-fit: contain;
-                object-position: center bottom;
-                pointer-events: none;
-                opacity: 0;
-                transform: translate3d(16px,22px,0) scale(.95);
-                transform-origin: bottom right;
-                filter: drop-shadow(0 0 20px rgba(255,166,209,.16));
-                transition: opacity 1.15s ease-out .14s, transform 1.65s cubic-bezier(.2,1,.25,1);
-            }
+#smile-stage .waguri-figure {
+    position: absolute;
+    display: block;
+    right: max(0vw, -6px);
+    bottom: -1.8vh;
+    z-index: 2;
+    height: min(79vh, 780px);
+    max-width: 52vw;
+    width: auto;
+    aspect-ratio: 408 / 540;
+    object-fit: contain;
+    object-position: center bottom;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate3d(16px,22px,0) scale(.95);
+    transform-origin: bottom right;
+    filter: drop-shadow(0 0 20px rgba(255,166,209,.16));
+    transition: opacity 1.15s ease-out .14s, transform 1.65s cubic-bezier(.2,1,.25,1);
+}
 
-            #smile-stage.hien-thi .waguri-figure {
-                opacity: 1;
-                transform: translate3d(0,0,0) scale(1);
-            }
+/* Khi có class .hien-thi, ảnh sẽ hiện lên mượt mà mà không cần chờ video */
+#smile-stage.hien-thi .waguri-figure {
+    opacity: 1;
+    transform: translate3d(0,0,0) scale(1);
+}
 
-            #smile-stage .waguri-glimmer {
-                position: absolute;
-                z-index: 3;
-                left: var(--sx);
-                top: var(--sy);
-                font-size: var(--ss);
-                color: #fff5e8;
-                text-shadow: 0 0 14px rgba(255,187,223,.7);
-                animation: wishShimmer var(--sd) ease-in-out var(--so) infinite alternate;
-            }
+#smile-stage .waguri-glimmer {
+    position: absolute;
+    z-index: 3;
+    left: var(--sx);
+    top: var(--sy);
+    font-size: var(--ss);
+    color: #fff5e8;
+    text-shadow: 0 0 14px rgba(255,187,223,.7);
+    animation: wishShimmer var(--sd) ease-in-out var(--so) infinite alternate;
+}
 
-            /* Nửa trái dành cho Tiny, nửa phải dành cho Waguri. */
-            #khung-mat.wish-smile {
-                transform: translateX(-16vw) translateY(-2vh) scale(.84);
-            }
+#khung-mat.wish-smile {
+    transform: translateX(-16vw) translateY(-2vh) scale(.84);
+}
 
-            #smile-stage .smile-ornament.right {
-                opacity: .50;
-            }
+#smile-stage .smile-ornament.right {
+    opacity: .50;
+}
 
-            @media (max-width: 600px) {
-                #smile-stage .waguri-figure {
-                    height: min(58vh, 500px);
-                    max-width: 90vw;
-                    right: -2vw;
-                    bottom: -0.8vh;
-                    filter: drop-shadow(0 0 12px rgba(255,177,217,.14));
-                }
+@media (max-width: 600px) {
+    #smile-stage .waguri-figure {
+        height: min(58vh, 500px);
+        max-width: 90vw;
+        right: -2vw;
+        bottom: -0.8vh;
+        filter: drop-shadow(0 0 12px rgba(255,177,217,.14));
+    }
 
-                #smile-stage .waguri-aura {
-                    right: -27vw;
-                    bottom: -9vh;
-                    width: 100vw;
-                    height: 68vh;
-                }
+    #smile-stage .waguri-aura {
+        right: -27vw;
+        bottom: -9vh;
+        width: 100vw;
+        height: 68vh;
+    }
 
-                #khung-mat.wish-smile {
-                    transform: translateX(-15vw) translateY(-12vh) scale(.73);
-                    gap: 50px;
-                }
+    #khung-mat.wish-smile {
+        transform: translateX(-15vw) translateY(-12vh) scale(.73);
+        gap: 50px;
+    }
 
-                #smile-stage .smile-ornament.right {
-                    opacity: .28;
-                }
+    #smile-stage .smile-ornament.right {
+        opacity: .28;
+    }
 
-                #smile-stage .waguri-glimmer {
-                    font-size: 14px;
-                }
-            }
+    #smile-stage .waguri-glimmer {
+        font-size: 14px;
+    }
+}
 
             /*
          * Nền sao 3 tầng (Uiverse.io - sinful_9361, dựa trên jaykdoe).
